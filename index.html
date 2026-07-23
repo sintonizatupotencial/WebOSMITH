@@ -544,7 +544,8 @@
             
             /* Botones táctiles a 100% de ancho para evitar errores al hacer tap */
             .cta-group { flex-direction: column; width: 100%; gap: 1rem; }
-            .btn-primary, .btn-secondary { width: 100%; text-align: center; padding: 1rem 1.5rem; }
+            /* FIX: Added display property to ensure width: 100% and internal container behavior works correctly on inline <a> tags, particularly for long text like the final CTA WhatsApp button. */
+            .btn-primary, .btn-secondary { display: inline-block; width: 100%; text-align: center; padding: 1rem 1.5rem; }
             
             /* Botones de las tiendas adaptados al ancho celular */
             .app-btn { width: 100%; justify-content: center; }
