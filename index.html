@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sintoniza tu Potencial | Neuroacústica Ejecutiva</title>
+    <title>Sintoniza tu Potencial | Bienestar Neuroacústico</title>
     
     <!-- Tipografía Inter / Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@
             position: relative;
         }
 
-        /* TEXTURA DE FONDO RICA Y AMBIENTAL */
+        /* TEXTURA DE FONDO RICA Y AMBIENTAL (Efecto Nebulosa Mejorado Osmith) */
         body::before {
             content: '';
             position: fixed;
@@ -54,15 +54,21 @@
             width: 100vw;
             height: 100vh;
             background: 
-                radial-gradient(circle at 50% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 45%),
-                radial-gradient(circle at 10% 60%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
-                linear-gradient(rgba(13, 17, 23, 0.88), rgba(13, 17, 23, 0.88)),
+                /* Capas de Nebulosa añadidas para profundidad sutil */
+                radial-gradient(ellipse at 40% 50%, rgba(0, 242, 254, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse at 85% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 65%),
+                /* Múltiples gradientes superpuestos base */
+                radial-gradient(ellipse at 25% 30%, rgba(0, 242, 254, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 65%, rgba(212, 175, 55, 0.07) 0%, transparent 55%),
+                radial-gradient(ellipse at 10% 85%, rgba(0, 242, 254, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 75% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(13, 17, 23, 0.5) 0%, rgba(13, 17, 23, 0.95) 100%),
+                linear-gradient(rgba(13, 17, 23, 0.85), rgba(13, 17, 23, 0.85)),
                 repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.015) 0px, rgba(212, 175, 55, 0.015) 1px, transparent 1px, transparent 25px);
             z-index: -2;
         }
 
-        /* CANVAS PARA ONDAS NEUROACÚSTICAS (MOVIMIENTO SERENO Y LENTO) */
+        /* CANVAS PARA ONDAS NEUROACÚSTICAS Y CIELO ESTRELLADO */
         #neuro-canvas {
             position: fixed;
             top: 0;
@@ -71,7 +77,7 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.5;
+            opacity: 0.8; /* Ligeramente incrementado para resaltar brillo estelar */
         }
 
         /* ==========================================================================
@@ -92,13 +98,13 @@
             align-items: center;
         }
 
-        /* LOGOTIPO AJUSTADO CON ESCALA VISUAL */
+        /* LOGOTIPO AJUSTADO CON INCREMENTO DRÁSTICO DE TAMAÑO PARA VENCER EL ESPACIO TRANSPARENTE DEL PNG */
         .logo-container img {
-            height: 3.5rem; 
+            height: 5.5rem; 
             width: auto;
             display: block;
             object-fit: contain;
-            transform: scale(2.5); 
+            transform: scale(3.2); 
             transform-origin: left center; 
         }
 
@@ -108,39 +114,60 @@
             align-items: center;
         }
 
-        /* NAVEGACIÓN PRINCIPAL: EN TONO DORADO POR DEFECTO */
+        /* NAVEGACIÓN PRINCIPAL: ANIMACIÓN RESPIRATORIA (18 SEGUNDOS) */
         nav a {
-            color: var(--oro-champagne);
             text-decoration: none;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.12rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: transform 0.5s ease;
+            animation: navBreathText 18s ease-in-out infinite;
         }
 
         nav a:hover {
-            color: var(--blanco-titanio);
-            text-shadow: 0 0 10px var(--oro-glow);
+            transform: translateY(-1px);
         }
 
-        /* ESTILO MODERNO PARA BOTÓN DE NAVEGACIÓN EN TONO DORADO */
+        /* ESTILO MODERNO PARA BOTÓN DE NAVEGACIÓN (CÁPSULA) */
         .btn-header {
-            background: rgba(212, 175, 55, 0.05);
-            border: 1px solid var(--oro-champagne) !important;
-            color: var(--oro-champagne) !important;
+            background: rgba(255, 255, 255, 0.02);
             padding: 0.6rem 1.6rem;
-            border-radius: 25px;
-            font-weight: 600 !important;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
-            transition: all 0.3s ease !important;
+            border-radius: 25px; /* Forma de cápsula mantenida */
+            font-weight: 600;
+            transition: transform 0.5s ease, background 0.5s ease;
+            border: 1px solid transparent; 
+            animation: navBreathBtn 18s ease-in-out infinite;
         }
 
         .btn-header:hover {
-            background: var(--oro-champagne) !important;
-            color: var(--azul-noche) !important;
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+            background: rgba(0, 242, 254, 0.05);
             transform: translateY(-2px);
+        }
+
+        /* KEYFRAMES RESPIRACIÓN (BLANCO A CIAN NEÓN) */
+        @keyframes navBreathText {
+            0%, 100% {
+                color: var(--blanco-titanio);
+                text-shadow: 0 0 0px transparent;
+            }
+            50% {
+                color: var(--cian-neon);
+                text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+            }
+        }
+
+        @keyframes navBreathBtn {
+            0%, 100% {
+                color: var(--blanco-titanio);
+                border-color: rgba(240, 246, 252, 0.4); /* Blanco tenue para el borde base */
+                box-shadow: 0 0 0px transparent;
+            }
+            50% {
+                color: var(--cian-neon);
+                border-color: var(--cian-neon); /* Borde Cian Neón */
+                box-shadow: 0 0 15px rgba(0, 242, 254, 0.25); /* Iluminación suave y limpia */
+            }
         }
 
         /* ==========================================================================
@@ -198,32 +225,11 @@
             justify-content: center;
         }
 
-        /* ESTILO MODERNO PARA BOTONES PRINCIPALES */
-        .btn-primary {
-            background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
-            color: var(--azul-noche);
-            padding: 1.2rem 2.6rem;
-            border-radius: 35px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.35);
-            border: none;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(0, 242, 254, 0.6);
-            background: linear-gradient(135deg, #33F5FF 0%, #66B5FF 100%);
-        }
-
-        .btn-secondary {
-            background: rgba(212, 175, 55, 0.05);
-            color: var(--oro-champagne);
-            border: 2px solid var(--oro-champagne);
+        /* BOTONES HERO CENTRALES Y CTA FINAL - ANIMACIÓN DE RESPIRACIÓN (BLANCO A CIAN NEÓN) */
+        .btn-hero-breath {
+            background: transparent;
+            color: var(--blanco-titanio);
+            border: 2px solid var(--blanco-titanio);
             padding: 1.2rem 2.6rem;
             border-radius: 35px;
             font-weight: 600;
@@ -231,16 +237,28 @@
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+            transition: transform 0.5s ease;
+            box-shadow: none;
+            animation: heroBtnBreath 18s ease-in-out infinite;
         }
 
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, var(--oro-champagne) 0%, #FFDF73 100%);
-            color: var(--azul-noche);
-            border-color: #FFDF73;
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+        .btn-hero-breath:hover {
             transform: translateY(-4px) scale(1.02);
+        }
+
+        @keyframes heroBtnBreath {
+            0%, 100% {
+                color: var(--blanco-titanio);
+                border-color: var(--blanco-titanio);
+                box-shadow: 0 0 0px transparent, inset 0 0 0px transparent;
+                text-shadow: 0 0 0px transparent;
+            }
+            50% {
+                color: var(--cian-neon);
+                border-color: var(--cian-neon);
+                box-shadow: 0 0 20px rgba(0, 242, 254, 0.3), inset 0 0 10px rgba(0, 242, 254, 0.15);
+                text-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+            }
         }
 
         /* ==========================================================================
@@ -280,7 +298,7 @@
             gap: 2.5rem;
         }
 
-        /* BASE DE LA TARJETA (El borde sin iluminar) */
+        /* BASE DE LA TARJETA */
         .card {
             background: var(--glass-border); 
             padding: 3rem 2.5rem;
@@ -291,13 +309,13 @@
             overflow: hidden; 
         }
 
-        /* LA "TAPA" INTERIOR (Mantiene el fondo glassmorphism y oculta el centro de la animación) */
+        /* LA "TAPA" INTERIOR (Define el grosor del borde) */
         .card::after {
             content: '';
             position: absolute;
-            top: 1.5px; left: 1.5px; right: 1.5px; bottom: 1.5px;
+            top: 4px; left: 4px; right: 4px; bottom: 4px;
             background: linear-gradient(145deg, rgba(22, 27, 34, 0.95) 0%, rgba(13, 17, 23, 0.98) 100%);
-            border-radius: 10.5px;
+            border-radius: 9px;
             z-index: 1;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
@@ -309,40 +327,54 @@
             z-index: 2;
         }
 
-        /* EL HAZ DE LUZ ROTATIVO Y SUAVE */
+        /* ILUMINACIÓN COMPLETA Y ESTÁTICA DEL BORDE */
         .card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent 70%, rgba(0, 242, 254, 0.7) 85%, var(--oro-champagne) 100%);
-            animation: rotateBorder 9s linear infinite;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.9), rgba(212, 175, 55, 0.8), rgba(0, 242, 254, 0.9), rgba(212, 175, 55, 0.8));
+            background-size: 300% 300%;
             z-index: 0;
-            opacity: 0.6;
+            opacity: 0; 
+            border-radius: 12px;
         }
 
-        /* KEYFRAMES DE ROTACIÓN CONTINUA */
-        @keyframes rotateBorder {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* KEYFRAMES DE RESPIRACIÓN (Opacidad rítmica de 27s en total: 9s activo por tarjeta) */
+        @keyframes borderBreathSeq {
+            0% { opacity: 0; }
+            5% { opacity: 1; }      /* Fade-in suave */
+            28% { opacity: 1; }     /* Mantiene brillo pleno */
+            33.33% { opacity: 0; }  /* Fade-out a los 9 segundos exactos */
+            100% { opacity: 0; }    /* Permanece apagado mientras las otras 2 tarjetas se iluminan */
         }
 
-        /* ILUMINACIÓN SECUENCIAL (De izquierda a derecha) */
-        .card:nth-child(1)::before { animation-delay: 0s; }
-        .card:nth-child(2)::before { animation-delay: 3s; }
-        .card:nth-child(3)::before { animation-delay: 6s; }
+        /* KEYFRAMES PARA EL JUEGO DE COLOR SUTIL */
+        @keyframes sutilColorDrift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-        /* EFECTOS HOVER */
+        /* ASIGNACIÓN DE ANIMACIONES Y RETRASOS SECUENCIALES */
+        .card:nth-child(1)::before { 
+            animation: borderBreathSeq 27s ease-in-out infinite 0s, sutilColorDrift 15s ease-in-out infinite; 
+        }
+        .card:nth-child(2)::before { 
+            animation: borderBreathSeq 27s ease-in-out infinite 9s, sutilColorDrift 15s ease-in-out infinite; 
+        }
+        .card:nth-child(3)::before { 
+            animation: borderBreathSeq 27s ease-in-out infinite 18s, sutilColorDrift 15s ease-in-out infinite; 
+        }
+
+        /* EFECTOS HOVER (Mantiene la tarjeta iluminada si el usuario interactúa) */
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.15);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 242, 254, 0.25);
         }
 
         .card:hover::before {
-            opacity: 1;
-            background: conic-gradient(from 0deg, transparent 60%, rgba(0, 242, 254, 1) 80%, var(--oro-champagne) 100%);
+            opacity: 1 !important;
+            animation: sutilColorDrift 15s ease-in-out infinite !important;
         }
 
         .card-symbol {
@@ -386,7 +418,7 @@
 
         .app-btn {
             background: rgba(13, 17, 23, 0.8);
-            border: 1.5px solid var(--oro-champagne);
+            border: 3px solid rgba(212, 175, 55, 0.4); /* Borde dorado inicial, grueso */
             padding: 1.2rem 2.5rem;
             border-radius: 12px; 
             color: var(--blanco-titanio);
@@ -394,20 +426,31 @@
             display: flex;
             align-items: center;
             gap: 1.4rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: appBtnBreathGold 18s ease-in-out infinite; /* Animación de 18s */
         }
 
         .app-btn:hover {
-            border-color: var(--cian-neon);
-            background: linear-gradient(135deg, rgba(13, 17, 23, 0.9), rgba(0, 242, 254, 0.08));
-            box-shadow: 0 8px 25px var(--cian-glow);
+            background: linear-gradient(135deg, rgba(13, 17, 23, 0.9), rgba(212, 175, 55, 0.1));
             transform: translateY(-4px) scale(1.02);
         }
 
+        @keyframes appBtnBreathGold {
+            0%, 100% {
+                border-color: rgba(212, 175, 55, 0.3); /* Dorado claro */
+                box-shadow: 0 0 5px rgba(212, 175, 55, 0.05);
+            }
+            50% {
+                border-color: rgba(212, 175, 55, 1); /* Dorado fuerte */
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(212, 175, 55, 0.15);
+            }
+        }
+
         .app-btn-icon {
-            font-size: 1.8rem;
-            color: var(--cian-neon);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--oro-champagne);
         }
 
         .app-btn-text span {
@@ -456,18 +499,18 @@
             background: var(--azul-noche);
         }
 
-        /* FOOTER LOGO IGUALADO VISUALMENTE */
         .footer-logo {
             margin-bottom: 3.5rem;
             display: flex;
             justify-content: center;
         }
 
+        /* TAMAÑO AUMENTADO DRÁSTICAMENTE PARA EL FOOTER */
         .footer-logo img {
-            height: 3.5rem; 
+            height: 6.5rem; 
             width: auto;
             object-fit: contain;
-            transform: scale(2.5);
+            transform: scale(3.2);
             transform-origin: center center;
         }
 
@@ -479,27 +522,26 @@
             flex-wrap: wrap;
         }
 
-        /* ESTILO DE BOTONES DEFINIDOS PARA LOS ENLACES DEL FOOTER */
         .footer-links a {
             color: var(--blanco-titanio);
             background: rgba(22, 27, 34, 0.8);
-            border: 1px solid var(--glass-border);
+            border: 3px solid rgba(212, 175, 55, 0.4); /* Borde dorado inicial, grueso */
             padding: 0.8rem 1.8rem;
             border-radius: 25px;
             text-decoration: none;
             font-size: 0.88rem;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: appBtnBreathGold 18s ease-in-out infinite; /* Animación de dorado claro a oscuro de 18s */
         }
 
         .footer-links a:hover {
             background: linear-gradient(135deg, var(--oro-champagne), #FFDF73);
             color: var(--azul-noche);
-            border-color: var(--oro-champagne);
-            box-shadow: 0 8px 25px var(--oro-glow);
+            border-color: var(--oro-champagne) !important;
+            box-shadow: 0 8px 25px var(--oro-glow) !important;
             transform: translateY(-3px);
         }
 
@@ -526,28 +568,23 @@
            ========================================================================== */
         @media (max-width: 768px) {
             header { padding: 1rem 1.5rem; }
-            .logo-container img { height: 2.2rem; transform: scale(2); transform-origin: left center; }
-            .footer-logo img { height: 2.2rem; transform: scale(2); transform-origin: center center; }
+            /* LOGOTIPO ADAPTADO PARA MÓVILES CON NUEVA ESCALA MAYOR */
+            .logo-container img { height: 4rem; transform: scale(2.8); transform-origin: left center; }
+            .footer-logo img { height: 4.5rem; transform: scale(2.8); transform-origin: center center; }
             nav { display: none; }
             
-            /* Ajuste tipográfico del Kicker para evitar desbordamiento horizontal */
             .hero-kicker { font-size: 0.65rem; letter-spacing: 0.15rem; padding: 0.5rem 1rem; }
             
-            /* Ajuste de escala para titulares principales en pantallas reducidas */
             .hero h1 { font-size: 2rem; }
             .section-header h2 { font-size: 1.8rem; }
             .section-header span { letter-spacing: 0.15rem; }
 
             .grid-cards { grid-template-columns: 1fr; }
-            /* Tarjetas con relleno optimizado para dar mayor área de lectura */
             .card { padding: 2rem 1.5rem; }
             
-            /* Botones táctiles a 100% de ancho para evitar errores al hacer tap */
             .cta-group { flex-direction: column; width: 100%; gap: 1rem; }
-            /* FIX: Added display property to ensure width: 100% and internal container behavior works correctly on inline <a> tags, particularly for long text like the final CTA WhatsApp button. */
-            .btn-primary, .btn-secondary { display: inline-block; width: 100%; text-align: center; padding: 1rem 1.5rem; }
+            .btn-hero-breath { display: inline-block; width: 100%; text-align: center; padding: 1rem 1.5rem; }
             
-            /* Botones de las tiendas adaptados al ancho celular */
             .app-btn { width: 100%; justify-content: center; }
 
             .footer-links { flex-direction: column; gap: 1rem; align-items: center; }
@@ -557,7 +594,7 @@
 </head>
 <body>
 
-    <!-- CANVA DE ONDAS SUAVES Y LENTAS -->
+    <!-- CANVA DE ONDAS SUAVES Y ESTRELLAS -->
     <canvas id="neuro-canvas"></canvas>
 
     <!-- ENCABEZADO -->
@@ -574,13 +611,13 @@
 
     <!-- HERO / IMPACTO INICIAL -->
     <section class="hero">
-        <div class="hero-kicker">Tecnología Neuroacústica de Punta</div>
-        <h1>Optimización mental ejecutiva y regulación del estrés en entornos de alta exigencia</h1>
-        <p>Estímulos sonoros personalizados desarrollados para gerentes, CEOs y equipos de alto rendimiento. Reduce la fatiga mental, maximiza tu enfoque estratégico y optimiza tu descanso sin interrumpir tu agenda.</p>
+        <div class="hero-kicker">Tecnología Neuroacústica Avanzada</div>
+        <h1>Reprograma tu mente: Soluciones reales para la ansiedad, el estrés y tu bienestar integral</h1>
+        <p>Estímulos sonoros personalizados para quienes buscan transformar su vida. Combate el estrés crónico, eleva tu autoestima, facilita la reducción de peso y recupera tu equilibrio emocional a través de audios subliminales creados a tu medida.</p>
         
         <div class="cta-group">
-            <a href="https://wa.me/5213334507332" target="_blank" class="btn-primary">⚡ Iniciar Consulta Personalizada</a>
-            <a href="#plataformas" class="btn-secondary">📱 Explorar la Aplicación</a>
+            <a href="https://wa.me/5213334507332" target="_blank" class="btn-hero-breath">Iniciar Consulta Personalizada</a>
+            <a href="#plataformas" class="btn-hero-breath">Explorar la Aplicación</a>
         </div>
     </section>
 
@@ -588,24 +625,24 @@
     <section class="features" id="metodologia">
         <div class="section-header reveal">
             <span>Audios Subliminales Exclusivos</span>
-            <h2>Una experiencia diseñada para mentes estratégicas</h2>
+            <h2>Una experiencia diseñada para tu transformación personal</h2>
         </div>
 
         <div class="grid-cards">
             <div class="card reveal">
                 <div class="card-symbol">◈</div>
                 <h3>Diagnóstico & Personalización</h3>
-                <p>Sin soluciones genéricas. Cada audio subliminal con tecnología neuroacústica de punta se formula tras una sesión individual donde analizamos tus patrones de estrés, carga operativa y objetivos de rendimiento mental.</p>
+                <p>Comprendemos que cada mente es única. Formulamos tu audio subliminal tras una evaluación profunda de tus objetivos: desde la reducción de ansiedad, control de peso y autoestima, hasta potenciar la concentración, atraer abundancia o derribar cualquier barrera subconsciente. Una herramienta exacta para tus necesidades.</p>
             </div>
             <div class="card reveal">
                 <div class="card-symbol">◇</div>
                 <h3>Transmisión Hi-Fi & Galería Privada</h3>
-                <p>Accede a tu biblioteca exclusiva mediante un reproductor streaming de alta fidelidad, diseñado para entregar frecuencias puras sin pérdidas de calidad ni distorsiones sonoras.</p>
+                <p>Accede a tu terapia sonora mediante un reproductor de alta fidelidad, diseñado para entregar frecuencias puras y estímulos neuroacústicos que actúan directamente en tu subconsciente sin interrupciones.</p>
             </div>
             <div class="card reveal">
                 <div class="card-symbol">◈</div>
                 <h3>Arquitectura Multidispositivo</h3>
-                <p>Reproduce tus sesiones desde cualquier entorno profesional: aplicación nativa para Android, app web optimizada para iOS, tablets y equipos de escritorio.</p>
+                <p>Tu santuario de paz mental te acompaña a donde vayas. Reproduce tus sesiones de reprogramación desde nuestra aplicación nativa para Android, web app para iOS o desde tu computadora, adaptándose a tu estilo de vida.</p>
             </div>
         </div>
     </section>
@@ -614,22 +651,34 @@
     <section class="apps-section" id="plataformas">
         <div class="section-header reveal">
             <span>Portabilidad Absoluta</span>
-            <h2>Tu santuario sonoro, disponible en todo momento</h2>
+            <h2>Tu bienestar emocional, disponible en todo momento</h2>
         </div>
 
         <div class="app-buttons reveal">
             <!-- Google Play Store -->
             <a href="https://play.google.com/store/search?q=osmith&c=apps" target="_blank" class="app-btn">
-                <div class="app-btn-icon">▶</div>
+                <div class="app-btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2c0 0-4 4-4 10s4 10 4 10 4-4 4-10-4-10-4-10z"/>
+                        <path d="M12 22c-3.3 0-8-2-8-8s4-8 8-8"/>
+                        <path d="M12 22c3.3 0 8-2 8-8s-4-8-8-8"/>
+                    </svg>
+                </div>
                 <div class="app-btn-text">
                     <span>Disponible en</span>
                     <strong>Google Play Store</strong>
                 </div>
             </a>
 
-            <!-- Web App (Enlace Real) -->
+            <!-- Web App -->
             <a href="https://osmith-a85ea.web.app/" target="_blank" class="app-btn">
-                <div class="app-btn-icon">🌐</div>
+                <div class="app-btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="6"/>
+                        <circle cx="12" cy="12" r="2"/>
+                    </svg>
+                </div>
                 <div class="app-btn-text">
                     <span>Plataforma Web / iOS & PC</span>
                     <strong>Acceso a Web App</strong>
@@ -640,9 +689,9 @@
 
     <!-- LLAMADA A LA ACCIÓN FINAL -->
     <section class="cta-banner reveal">
-        <h2>¿Listo para elevar tu rendimiento mental al siguiente nivel?</h2>
-        <p>Agenda tu entrevista inicial por WhatsApp. Evaluaremos tus requerimientos específicos para configurar tu primer audio subliminal personalizado.</p>
-        <a href="https://wa.me/5213334507332" target="_blank" class="btn-primary">💬 Agendar Entrevista por WhatsApp</a>
+        <h2>¿Listo para recuperar tu tranquilidad y transformar tu realidad?</h2>
+        <p>Agenda tu consulta inicial por WhatsApp. Cuéntanos qué aspecto de tu vida deseas potenciar —ya sea bienestar emocional, físico, desarrollo profesional, abundancia o reprogramación de hábitos— y diseñaremos tu primer audio subliminal 100% personalizado para lograrlo.</p>
+        <a href="https://wa.me/5213334507332" target="_blank" class="btn-hero-breath">Agendar Consulta por WhatsApp</a>
     </section>
 
     <!-- PIE DE PÁGINA -->
@@ -658,7 +707,7 @@
         <p class="copyright">&copy; 2026. Sintoniza tu Potencial. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JAVASCRIPT: MOVIMIENTO ULTRA LENTO Y SERENO -->
+    <!-- JAVASCRIPT: MOVIMIENTO ESTELAR MEJORADO Y ONDAS -->
     <script>
         function reveal() {
             var reveals = document.querySelectorAll('.reveal');
@@ -674,20 +723,79 @@
         window.addEventListener('scroll', reveal);
         reveal();
 
-        // ONDAS FLUIDAS CON MOVIMIENTO LENTO
+        // CANVAS Y CONTEXTO
         const canvas = document.getElementById('neuro-canvas');
         const ctx = canvas.getContext('2d');
+
+        // CLASE PARA CIELO ESTRELLADO (Optimizada según requerimientos)
+        class Star {
+            constructor(w, h) {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                // Diferencias sutiles de tamaño para generar profundidad real (0.4px a 1.9px)
+                this.size = Math.random() * 1.5 + 0.4; 
+                this.cycleDuration = 18000; // Ciclo de respiración exacto de 18 segundos
+                this.timeOffset = Math.random() * this.cycleDuration; 
+            }
+
+            draw(ctx, currentTime) {
+                let timeInCycle = (currentTime + this.timeOffset) % this.cycleDuration;
+                let progress = timeInCycle / this.cycleDuration;
+                
+                // Función matemática suavizada para transición transparente a blanco brillante
+                let baseAlpha = Math.sin(progress * Math.PI);
+                // Permite alcanzar alfa hasta 1.0 (blanco intenso) antes de atenuarse
+                let alpha = Math.pow(baseAlpha, 2); 
+
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                
+                // Aplicar un brillo tenue (glow) dinámico
+                ctx.shadowBlur = alpha * 6;
+                ctx.shadowColor = `rgba(255, 255, 255, ${alpha})`;
+                
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Limpiar la sombra para no afectar las ondas neuroacústicas
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        let stars = [];
+        function initStars() {
+            stars = [];
+            // Genera exactamente 100 estrellas moderadas sin saturar el fondo
+            let totalStars = 100; 
+            for (let i = 0; i < totalStars; i++) {
+                stars.push(new Star(canvas.width, canvas.height));
+            }
+        }
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            initStars(); // Re-dibujamos las estrellas si cambian la ventana
         }
         window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        
+        // Inicializar canvas la primera vez
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        initStars();
 
         let step = 0;
-        function drawWaves() {
+        
+        // LOOP PRINCIPAL SINCRONIZADO AL RELOJ DEL NAVEGADOR
+        function drawScene(timestamp) {
+            if (!timestamp) timestamp = 0;
+            
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // 1. Dibujar el cielo estrellado con ciclo de respiración
+            stars.forEach(star => star.draw(ctx, timestamp));
+
+            // 2. Dibujar Ondas Fluídas entrelazadas
             ctx.lineWidth = 1.2;
             
             // Onda Cian
@@ -711,9 +819,10 @@
             ctx.stroke();
 
             step += 1;
-            requestAnimationFrame(drawWaves);
+            requestAnimationFrame(drawScene);
         }
-        drawWaves();
+        
+        requestAnimationFrame(drawScene);
     </script>
 </body>
 </html>
